@@ -69,6 +69,13 @@ class Tag:
 
         return self._tag_back
 
+    def save( self, filename ):
+        ''' saves the tag to a file '''
+        if not self.tag:
+            print( "You must generate the tag before saving it!" )
+            return
+        self.tag.save( filename )
+
     def needs_data( self ):
         ''' checks if data needs to be populated. Returns boolean '''
         if self.first_name and self.last_name and self.talent_1 and self.talent_2 and self.talent_3 and self.talent_4 and self.talent_5:
