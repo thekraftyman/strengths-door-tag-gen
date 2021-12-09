@@ -74,6 +74,14 @@ class GeneratorGUI:
         ''' updates the completion label with a given text '''
         self._components['completion_var'].set( text )
 
+    @property
+    def outfile( self ):
+        return self._components['outfile_entry'].get()
+
+    @property
+    def infile( self ):
+        return self._components['infile_entry'].get()
+
     def update_infile( self ):
         ''' updates the infile entry box with the results from browse_csv '''
         filename = self.browse_csv()
