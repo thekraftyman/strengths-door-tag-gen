@@ -3,11 +3,10 @@
 
 from PIL import Image, ImageFont, ImageDraw, ImageOps
 import os
+
 class Tag:
     ''' Tag container. Generates the pdf for a given individual '''
     # Globals for the class
-    page_width = 792
-    page_height = 612
     if os.path.isdir( 'img' ):
         img_path = 'img/'
     elif os.path.isdir( '../img' ):
@@ -63,11 +62,22 @@ class Tag:
         return self.tag
 
     @property
+    def front( self ):
+        return self.tag
+    @property
+    def back( self ):
+        return self.tag_back
+
+    @property
     def tag_back( self ):
         if not self._tag_back:
             self._load_tag_back()
 
         return self._tag_back
+
+    @property
+    def size( self ):
+        return self.tag_size
 
     def save( self, filename ):
         ''' saves the tag to a file '''
